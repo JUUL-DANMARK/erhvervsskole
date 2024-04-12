@@ -1,14 +1,34 @@
+<!DOCTYPE html>
+<html lang="da">
 <head>
     <link rel="stylesheet" href="output.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danmarks nye Erhvervsskole</title>
+    <meta name="description" content="Tag en erhvervsuddannelse som gods- eller buschauffør hos JUUL Erhvervsskole. Løn under uddannelse, trygt læringsmiljø, masser af praktik og stor sikkerhed for job.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="font-LeagueSpartan max-w-full">
+        <img class="fixed left-10 sm:left-16 max-w-none resize-none h-16" src="./assets/logoTransport.png"/>
 
-    <div class="flex"
+
+    <div class="grid grid-cols-1"
         style="background-image: url('https://www.erhvervsskole.dk/erhvervsskole.jpg'); background-position: center center;
-        background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: black; height: 99vh;">
-    </div>
-    <div>
-        <p class="text-7xl">Test!</p>
+        background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: #FDED1F; height: 96vh;">
+        <div></div>
+        <div class="flex justify-center items-center text-white">
+            <p class="text-4xl sm:text-7xl font-bold">JUUL Erhvervsskole</p>
+        </div>
+        <div class="flex flex-wrap h-fit sm:gap-10 sm:justify-center sm:items-center">
+            <div class="bg-white pl-8 h-fit w-full sm:w-fit sm:rounded-full sm:p-4">
+                <img src="./assets/godschauffoer.webp" />
+            </div>
+            <div class="bg-white pl-8 h-fit w-full sm:w-fit sm:rounded-full sm:p-4">
+                <img src="./assets/bus.webp" />
+            </div>
+        </div>
     </div>
 </body>
