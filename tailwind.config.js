@@ -83,7 +83,9 @@ module.exports = {
 
           '900': '#191b1d'
 
-        }
+        },
+
+        'eud-yellow': '#FDED1F',
 
       },
     },

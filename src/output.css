@@ -673,6 +673,10 @@ video {
   left: 0px;
 }
 
+.left-10 {
+  left: 2.5rem;
+}
+
 .left-4 {
   left: 1rem;
 }
@@ -747,10 +751,6 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
 }
 
 .mr-1 {
@@ -1966,6 +1966,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-eud-yellow {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 237 31 / var(--tw-bg-opacity));
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2208,6 +2213,11 @@ video {
   line-height: 2rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -2216,11 +2226,6 @@ video {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -2945,6 +2950,10 @@ video {
 }
 
 @media (max-width:481px) {
+  .xsd\:hidden {
+    display: none;
+  }
+
   .xsd\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -2974,6 +2983,10 @@ video {
 @media (max-height:720px) and (max-width:390px) {
   .tinyPhone\:mt-6 {
     margin-top: 1.5rem;
+  }
+
+  .tinyPhone\:hidden {
+    display: none;
   }
 
   .tinyPhone\:gap-0 {
