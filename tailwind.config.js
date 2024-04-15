@@ -7,9 +7,10 @@ module.exports = {
     },
     extend: {
       screens: {
-        'xsd': { raw: '(max-width:481px)' },
-        'desktop': '400px',
+        'phone': { raw: '(max-width:481px)' },
         'tinyPhone': { raw: '(max-height:720px) and (max-width:390px)' },
+        'desktop': '400px',
+        'xsd': '415px',
       },
       colors: {
 
