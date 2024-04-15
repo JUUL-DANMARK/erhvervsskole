@@ -7,7 +7,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        'desktop': '481px',
+        'xsd': { raw: '(max-width:481px)' },
+        'desktop': '400px',
         'tinyPhone': { raw: '(max-height:720px) and (max-width:390px)' },
       },
       colors: {
