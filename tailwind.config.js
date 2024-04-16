@@ -5,7 +5,9 @@ module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
     fontFamily: {
-      'LeagueSpartan': ['"League Spartan"', 'sans-serif']
+      'LeagueSpartan': ['"League Spartan"', 'sans-serif'],
+      'body': ['"Segoe UI"', '"Open Sans"', 'sans-serif'],
+
     },
     screens: {
       'xsd': '415px',

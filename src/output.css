@@ -785,6 +785,14 @@ video {
   margin-top: 1.5rem;
 }
 
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2028,6 +2036,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-outer-space-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(46 50 53 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\.\/assets\/elev-both-xss\.png\'\)\] {
   background-image: url('./assets/elev-both-xss.png');
 }
@@ -2170,6 +2183,11 @@ video {
   padding: 2rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -2208,6 +2226,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .pl-3 {
@@ -2296,6 +2319,10 @@ video {
 
 .font-LeagueSpartan {
   font-family: "League Spartan", sans-serif;
+}
+
+.font-body {
+  font-family: "Segoe UI", "Open Sans", sans-serif;
 }
 
 .text-2xl {
@@ -2818,18 +2845,6 @@ video {
   forced-color-adjust: none;
 }
 
-@media only screen and (min-device-width: 481px) {
-  .hideDesktop {
-    display: none;
-  }
-}
-
-@media only screen and (max-device-width: 480px) {
-  .hideMobile {
-    display: none;
-  }
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -3135,9 +3150,9 @@ video {
     background-image: url('./assets/elev-both-xl.png');
   }
 
-  .\32xl\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .\32xl\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
