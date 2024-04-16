@@ -781,10 +781,6 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -2949,10 +2945,6 @@ video {
 }
 
 @media (min-width: 415px) {
-  .xsd\:mt-20 {
-    margin-top: 5rem;
-  }
-
   .xsd\:min-h-48 {
     min-height: 12rem;
   }
@@ -2986,16 +2978,6 @@ video {
   .phone\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-}
-
-@media (min-width: 500px) {
-  .xsm\:hidden {
-    display: none;
-  }
-
-  .xsm\:bg-\[url\(\'\.\/assets\/elev-w-xs\.png\'\)\] {
-    background-image: url('./assets/elev-w-xs.png');
   }
 }
 
@@ -3070,10 +3052,6 @@ video {
 @media (min-width: 768px) {
   .md\:left-20 {
     left: 5rem;
-  }
-
-  .md\:mt-40 {
-    margin-top: 10rem;
   }
 }
 
