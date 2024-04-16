@@ -1,16 +1,22 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
     fontFamily: {
       'LeagueSpartan': ['"League Spartan"', 'sans-serif']
     },
+    screens: {
+      'xsd': '415px',
+      'desktop': '400px',
+      'phone': { raw: '(max-width:481px)' },
+      'xsm': '500px',
+      ...defaultTheme.screens,
+    },
     extend: {
       screens: {
-        'phone': { raw: '(max-width:481px)' },
-        'tinyPhone': { raw: '(max-height:720px) and (max-width:390px)' },
-        'desktop': '400px',
-        'xsd': '415px',
+        'tinyPhone': { raw: '(max-height:865px) and (max-width:375px)' },
       },
       colors: {
 
