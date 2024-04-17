@@ -12,18 +12,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+    <script>
+        var menuOpen = false;
+        function openMenu() {
+            if(menuOpen) {
+                document.getElementById("dropdown-button").style.setProperty("display", "none")
+                menuOpen = false;
+            } else {
+                document.getElementById("dropdown-button").style.setProperty("display", "inline")
+                menuOpen = true;
+            }
+        }
+    </script>
 </head>
 
 <body class="font-body max-w-full">
+    <div x-show="menu" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" 
+    class="relative z-40 lg:hidden dropdown__test" role="dialog" aria-modal="true" style="display: none;" id="dropdown-button">
+        <!--
+          Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
+          Entering: "transition-opacity ease-linear duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "transition-opacity ease-linear duration-300"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+
+        <div x-show="menu" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" 
+        class="fixed inset-0 z-40 flex flex-row-reverse">
+            <!--
+              Off-canvas menu, show/hide based on off-canvas menu state.
+
+              Entering: "transition ease-in-out duration-300 transform"
+                From: "-translate-x-full"
+                To: "translate-x-0"
+              Leaving: "transition ease-in-out duration-300 transform"
+                From: "translate-x-0"
+                To: "-translate-x-full"
+            -->
+            <div @click.outside="menu = ! menu" class="relative flex min-w-48 w-fit h-fit max-w-xs sm:max-w-sm flex-col overflow-y-auto bg-white shadow-xl" id="inside-menu">
+                <div class="flex justify-end px-4 py-4">
+                    <button onclick="openMenu()" type="button" class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" id="open-menu-button">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Links -->
+                <div class="space-y-6 border-t border-gray-200 text-center px-4 py-6 text-lg">
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="#kontakt_footer">Kontakt</a>                    
+                    </div>
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="https://facebook.com/amujuul">Facebook</a>                    
+                    </div>
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="https://instagram.com/amujuul">Instagram</a>                    
+                    </div>
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="https://www.youtube.com/channel/UCftMQQgOmpJGFY9W4nvuHOw">YouTube</a>                    
+                    </div>
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="https://www.tiktok.com/@juul_erhvervsskole">TikTok</a>                    
+                    </div>
+                    <div class="flow-root">
+                        <a class="-m-2 block p-2 sm:py-2 sm:px-3 rounded-md font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100" href="https://www.linkedin.com/company/amu-juul-a-s">LinkedIn</a>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Mobile Nav -->
     <nav class="sm:hidden fixed z-10 left-0 flex w-full max-w-none bg-outer-space-500">
         <img class="resize-none h-16" src="./src/assets/logo-mobile.png" />
         <a href="https://www.amujuul.dk/erhvervsskole/tilmelding"
             class="w-full flex h-16 sm:fixed sm:right-0 justify-center items-center bg-white">
-            <p class="text-gray-700 text-sm">Tilmeld</p>
+            <p class="text-gray-700 text-base">Tilmeld</p>
         </a>
+        <button onclick="openMenu()" type="button" class="bg-white p-4 sm:p-3 text-gray-400">
+            <span class="sr-only">Åben menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </button>
     </nav>
 
     <!-- Desktop Nav -->
@@ -109,11 +185,11 @@
             </div>
         </div>
         <div class="flex self-end mb-6 tinyPhone:mb-2 items-end justify-center">
-                <a class="sm:hidden" href="#section_1_mobile">
+                <a class="lg:hidden" href="#section_1_mobile">
                     <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
                     src="./src/assets/arrow-down.svg" />
                 </a>
-            <a class="hidden sm:inline" href="#section_1_desktop">
+            <a class="hidden lg:inline" href="#section_1_desktop">
                     <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
                     src="./src/assets/arrow-down.svg" />
             </a>
@@ -148,9 +224,9 @@
     <!-- Desktop Content Section -->
     <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 bg-outer-space-500">
         <div class="hidden 2xl:flex"></div>
-        <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-center bg-outer-space-500">
+        <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-start bg-outer-space-500">
             <a class="relative -top-10" id="section_1_desktop"></a>
-            <p class="text-2xl mb-2 font-extrabold">En uddannelse på JUUL Erhvervsskole</p>
+            <p class="text-2xl px-8 mb-2 font-extrabold">En uddannelse på JUUL Erhvervsskole</p>
             <span class="space-y-4 px-8 text-xl">
                 <p >
                     Tag en erhvervsuddannelse på JUUL Erhvervsskole og find din plads i transportbranchen. 
@@ -200,11 +276,11 @@
     <!-- Desktop Content Section -->
     <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 bg-outer-space-600">
         <div class="hidden 2xl:flex"></div>
-        <div class="flex flex-col 2xl:col-span-2 justify-center items-center bg-outer-space-600">
+        <div class="flex flex-col 2xl:col-span-2 justify-center items-start bg-outer-space-600">
             <img src="./src/assets/content-section-2.jpeg" />
         </div>
-        <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-center bg-outer-space-600">
-            <p class="text-2xl mb-2 px-4 font-extrabold">Om Skolen</p>
+        <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-start bg-outer-space-600">
+            <p class="text-2xl mb-2 px-8 font-extrabold">Om Skolen</p>
             <span class="space-y-4 px-8 text-xl">
                 <p>
                     JUUL Erhvervsskole ligger lidt uden for Roskilde på Abildgårdsvej 14. 
@@ -252,9 +328,9 @@
         <!-- Desktop Content Section -->
         <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 bg-outer-space-500">
             <div class="hidden 2xl:flex"></div>
-            <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-center bg-outer-space-500">
+            <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-start bg-outer-space-500">
                 <a class="relative -top-10" id="section_1_desktop"></a>
-                <p class="text-2xl mb-2 font-extrabold">Underviserne</p>
+                <p class="text-2xl mb-2 px-8 font-extrabold">Underviserne</p>
                 <span class="space-y-4 text-xl px-8">
                     <p>
                         Vores undervisere er klar til at tage dig hele vejen fra lærling til udlært, med den hjælp eller støtte som du måtte have brug for. 
@@ -280,7 +356,7 @@
         <div class="p-8 flex flex-col gap-y-8 bg-outer-space-600">
             <div class="flex flex-col text-white max-w-xl w-full bg-outer-space-600">
                 <p class="text-2xl px-4 mb-2 font-extrabold">På skolen kan vi tilbyde</p>
-                <ul class="list-disc px-6 space-y-2">
+                <ul class="list-disc px-6 space-y-2 text-lg">
                     <li>Dygtige undervisere med tid til hver enkelt elev</li>
                     <li>Muligheder for støtte under hele uddannelsen</li>
                     <li>Hjælp til at finde læreplads og andre praktiske udfordringer</li>
@@ -326,9 +402,9 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 w-full sm:items-center sm:justify-center bg-outer-space-800 min-h-10">
         <div class="hidden lg:flex"></div>
         <div class="flex flex-col lg:col-span-2 pl-6 pr-10 pt-5">
-            <div class="mb-0">
+            <a id="kontakt_footer" class="mb-0">
                 <img class="resize-none h-14 self-start" src="./src/assets/logoTransport.png" />
-            </div>
+            </a>
             <div>
                 <a href="tel:+4539391111" rel="noopener noreferrer" 39 39 11 11 class="group inline-block py-4">
                     <svg class="h-8 w-8 -mt-2 text-white fill-current inline-block group-hover:text-stiletto-400 group-active:text-stiletto-600 transition-colors duration-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
