@@ -2138,6 +2138,11 @@ video {
   background-color: rgb(50 63 105 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\.\/assets\/elev-both-xss-gradient\.png\'\)\] {
   background-image: url('./assets/elev-both-xss-gradient.png');
 }
@@ -2197,6 +2202,10 @@ video {
 
 .bg-center {
   background-position: center;
+}
+
+.bg-bottom {
+  background-position: bottom;
 }
 
 .bg-repeat {
@@ -2565,6 +2574,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-opacity-75 {
@@ -3298,6 +3312,10 @@ video {
   .xl\:bg-\[url\(\'\.\/assets\/elev-both-xl\.png\'\)\] {
     background-image: url('./assets/elev-both-xl.png');
   }
+
+  .xl\:bg-\[url\(\'\.\/assets\/elev-both-xl-gradient\.png\'\)\] {
+    background-image: url('./assets/elev-both-xl-gradient.png');
+  }
 }
 
 @media (min-width: 1536px) {
@@ -3315,6 +3333,10 @@ video {
 
   .\32xl\:bg-\[url\(\'\.\/assets\/elev-both-xl\.png\'\)\] {
     background-image: url('./assets/elev-both-xl.png');
+  }
+
+  .\32xl\:bg-\[url\(\'\.\/assets\/elev-both-xl-gradient\.png\'\)\] {
+    background-image: url('./assets/elev-both-xl-gradient.png');
   }
 
   .\32xl\:py-0 {
