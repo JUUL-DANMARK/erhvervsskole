@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'LeagueSpartan': ['"League Spartan"', 'sans-serif'],
-      'body': ['"Segoe UI"', '"Open Sans"', 'sans-serif'],
+      'body': ['"Roboto"', '"Open Sans"', 'sans-serif'],
 
     },
     screens: {
