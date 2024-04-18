@@ -3080,17 +3080,6 @@ video {
   text-shadow: 0 1px 12px var(--tw-shadow-color);
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: fixed;
-  right: 0;
-  top: calc(100% + 5rem);
-  background-color: white;
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
