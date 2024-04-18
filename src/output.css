@@ -3440,6 +3440,10 @@ video {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
+  .\32xl\:bg-\[url\(\'\.\/assets\/elev-both-2xl\.png\'\)\] {
+    background-image: url('./assets/elev-both-2xl.png');
+  }
+
   .\32xl\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;

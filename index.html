@@ -14,15 +14,39 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script>
         var menuOpen = false;
-        function openMenu() {
-            if(menuOpen) {
-                document.getElementById("dropdown-button").style.setProperty("display", "none")
-                menuOpen = false;
-            } else {
+        function openMenu(menu) {
+            if(menu) {
                 document.getElementById("dropdown-button").style.setProperty("display", "inline")
-                menuOpen = true;
+
+            } else {
+                document.getElementById("dropdown-button").style.setProperty("display", "none")
             }
         }
+
+        window.onclick = function(event) {
+            let target = event.target;
+            if(window.innerWidth >= 640) {
+                openMenu(false)
+                return;
+            }
+            if(target.id === "open-menu-button" || target.parentNode.id === "open-menu-button" || target.parentNode.parentNode.id === "open-menu-button"){
+                openMenu(true)
+                return
+            }
+            if(target.id === "close-menu-button" || target.parentNode.id === "close-menu-button" || target.parentNode.parentNode.id === "close-menu-button"){
+                openMenu(false)
+                return
+            }
+            for (let i = 0; i < 5; i++) {
+                if(target.id === "inside-menu"){
+                    return
+                }
+                target = target.parentNode;  
+            }
+            openMenu(false)
+
+        }
+
     </script>
 </head>
 
@@ -55,7 +79,7 @@
             -->
             <div @click.outside="menu = ! menu" class="relative flex min-w-48 w-fit h-fit max-w-xs sm:max-w-sm flex-col overflow-y-auto bg-white shadow-xl" id="inside-menu">
                 <div class="flex justify-end px-4 py-4">
-                    <button onclick="openMenu()" type="button" class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" id="open-menu-button">
+                    <button type="button" class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" id="close-menu-button">
                         <span class="sr-only">Close menu</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
@@ -88,13 +112,13 @@
         </div>
     </div>
     <!-- Mobile Nav -->
-    <nav class="sm:hidden fixed z-10 left-0 flex w-full max-w-none bg-outer-space-500">
+    <nav class="sm:hidden fixed z-10 left-0 flex w-full max-w-none bg-outer-space-500" id="mobile-nav">
         <img class="resize-none h-16" src="./src/assets/logo-mobile.png" />
         <a href="https://www.amujuul.dk/erhvervsskole/tilmelding"
             class="w-full flex h-16 sm:fixed sm:right-0 justify-center items-center bg-white">
             <p class="text-gray-700 text-base">Tilmeld</p>
         </a>
-        <button onclick="openMenu()" type="button" class="bg-white p-4 sm:p-3 text-gray-400">
+        <button onclick="openMenu()" type="button" class="bg-white p-4 sm:p-3 text-gray-400" id="open-menu-button">
             <span class="sr-only">Åben menu</span>
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
@@ -140,7 +164,7 @@
         </a>
     </nav>
 
-    <div class="grid grid-cols-1 min-h-[670px] sm:gap-y-0 tinyPhone:gap-0 bg-no-repeat bg-contain bg-bottom xl:bg-[url('./assets/elev-both-xl.png')] bg-eud-yellow"
+    <div class="grid grid-cols-1 min-h-[670px] sm:gap-y-0 tinyPhone:gap-0 bg-no-repeat bg-contain bg-bottom xl:bg-[url('./assets/elev-both-xl.png')] 2xl:bg-[url('./assets/elev-both-2xl.png')] bg-eud-yellow"
         style="height: 99vh;">
         <div
             class="tinyPhone:hidden xsd:justify-end xl:mb-10 mt-16 xl:mt-20 flex flex-col sm:gap-y-1 justify-center items-center text-white">
@@ -185,11 +209,11 @@
             </div>
         </div>
         <div class="flex self-end mb-6 tinyPhone:mb-2 items-end justify-center">
-                <a class="lg:hidden" href="#section_1_mobile">
+                <a class="lg:hidden" href="#s1m">
                     <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
                     src="./src/assets/arrow-down.svg" />
                 </a>
-            <a class="hidden lg:inline" href="#section_1_desktop">
+            <a class="hidden lg:inline" href="#s1d">
                     <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
                     src="./src/assets/arrow-down.svg" />
             </a>
@@ -200,7 +224,7 @@
     <!-- Section 1 -->
     <!-- Mobile Content Section -->
     <div class="lg:hidden bg-outer-space-500 flex flex-col justify-center items-center px-0 py-8">
-        <a class="relative -top-10" id="section_1_mobile"></a>
+        <a class="relative -top-10" id="s1m"></a>
         <div class="p-8 flex flex-col gap-y-8 bg-outer-space-500">
             <div class="flex flex-col text-white max-w-xl w-full bg-outer-space-500">
                 <p class="text-2xl mb-2 px-4 font-extrabold">En uddannelse på JUUL Erhvervsskole</p>
@@ -216,7 +240,7 @@
                 </span>
             </div>
             <div class="flex max-w-xl w-full bg-outer-space-500">
-                <img src="./src/assets/content-section-1.jpg" />
+                <img src="./src/assets/content-section-1-m.jpg" />
             </div>
         </div>
     </div>
@@ -225,7 +249,7 @@
     <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 bg-outer-space-500">
         <div class="hidden 2xl:flex"></div>
         <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-start bg-outer-space-500">
-            <a class="relative -top-10" id="section_1_desktop"></a>
+            <a class="relative -top-10" id="s1d"></a>
             <p class="text-2xl px-8 mb-2 font-extrabold">En uddannelse på JUUL Erhvervsskole</p>
             <span class="space-y-4 px-8 text-xl">
                 <p >
@@ -320,7 +344,7 @@
                     </span>
                 </div>
                 <div class="flex max-w-xl w-full bg-outer-space-500">
-                    <img src="./src/assets/content-section-3.jpg" />
+                    <img src="./src/assets/content-section-3-m.jpg" />
                 </div>
             </div>
         </div>
@@ -369,7 +393,7 @@
                 </ul>
             </div>
             <div class="flex max-w-xl w-full bg-outer-space-600">
-                <img src="./src/assets/content-section-4.jpeg" />
+                <img src="./src/assets/content-section-4-m.jpg" />
             </div>
         </div>
     </div>
