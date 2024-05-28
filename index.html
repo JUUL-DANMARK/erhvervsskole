@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
     <script>
         var menuOpen = false;
         function openMenu(menu) {
@@ -50,9 +51,38 @@
         }
 
     </script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('global_data', {
+                video: true,
+            })
+        })
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('eudVideo').addEventListener('ended', endFunction, false);
+        });
+        function endFunction(e){
+            Alpine.store('global_data').video = false;
+        }
+    </script>
+    <style>
+        .top-container {
+            display: grid;
+            grid-template: 1fr/1fr;
+        }
+        .container-video {
+            grid-column: 1/-1;
+            grid-row-start: 1;
+        }
+        .container-cta {
+            grid-column: 1/-1;
+            grid-row-start: 1;
+        }
+    </style>
 </head>
 
-<body class="font-body max-w-full">
+<body class="font-body max-w-full bg-eud-yellow">
     <div x-show="menu" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" 
     class="relative z-40 lg:hidden dropdown__test" role="dialog" aria-modal="true" style="display: none;" id="dropdown-button">
         <!--
@@ -131,7 +161,7 @@
     <!-- Desktop Nav -->
     <img class="hidden sm:inline absolute left-10 md:left-20 max-h-16 resize-none z-10"
         src="./src/assets/logoTransport.png" />
-    <nav class="hidden gap-x-4 pr-6 lg:pr-20 sm:flex justify-end absolute left-0 w-full h-10 max-w-none">
+    <nav class="hidden gap-x-4 pr-6 lg:pr-20 sm:flex justify-end absolute left-0 w-full h-10 max-w-none z-10">
         <a href="https://www.amujuul.dk/erhvervsskole/tilmelding"
             class="h-full flex w-40 justify-center items-center bg-rhino-500">
             <p class="text-white text-2xl">Tilmeld</p>
@@ -165,61 +195,102 @@
             <img class="w-[28px] h-[28px]" src="./src/assets/linkedin.svg" />
         </a>
     </nav>
+    <!-- Frontpage -->
+    <div x-data  class="h-[97svh] sm:h-[99dvh] min-h-[670px] bg-eud-yellow top-container">
 
-    <div class="h-[97svh] sm:h-[99dvh]  grid grid-cols-1 min-h-[670px] sm:gap-y-0 tinyPhone:gap-0 bg-no-repeat bg-contain bg-bottom xl:bg-[url('./src/assets/elev-both-xl.png')] 2xl:bg-[url('./src/assets/elev-both-2xl.png')] bg-eud-yellow">
-        <div
-            class="tinyPhone:hidden xsd:justify-end xl:mb-10 mt-16 xl:mt-20 flex flex-col sm:gap-y-1 justify-center items-center text-white">
-            <p class="phone:text-xl text-2xl sm:text-3xl lg:text-3xl font-bold [text-shadow:_0_1px_12px_var(--tw-shadow-color)] shadow-slate-900/50">
-                Næste hold 19. August 2024</p>
-            <p class="text-5xl phone:text-4xl sm:text-7xl lg:text-8xl font-bold  [text-shadow:_0_1px_12px_var(--tw-shadow-color)] shadow-slate-900/50"
-                >JUUL Erhvervsskole</p>
-        </div>
-        <div
-            class="flex tinyPhone:hidden -mb-16 min-h-64 xl:hidden bg-no-repeat bg-contain bg-center bg-[url('./src/assets/elev-both-xss-gradient.png')]">
-        </div>
-        <!-- CTA-->
-        <div
-            class="flex flex-wrap h-fit xl:max-h-96 tinyPhone:h-fit tinyPhone:mt-20 gap-10 xl:gap-x-16 justify-center items-center">
-            <div class="flex flex-col w-fit">
-                <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
-                    class="rounded-full mb-4 bg-outer-space-500 shadow-xl">
-                    <img src="./src/assets/godschauffoer.webp" />
-                </a>
-                <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
-                    class="flex flex-col justify-center items-center shadow-xl">
-                    <button type="button"
-                        class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
-                         hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
-                        Bliv Godschauffør
-                    </button>
-                </a>
+                <video x-show="$store.global_data.video" class="h-full w-full object-cover container-video" id="eudVideo" style="background-color:transparent;" autoplay muted playsinline>
+                    <source src="./src/assets/eudWebShort.mp4" type="video/mp4">
+                </video>
+
+            <div x-show="$store.global_data.video" class="flex flex-wrap h-fit xl:max-h-96 tinyPhone:h-fit tinyPhone:mt-20 gap-10 xl:gap-x-16 justify-center items-center container-cta self-end pb-24">
+                <div class="flex flex-col w-fit">
+                    <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                        class="rounded-full mb-4 bg-outer-space-500 shadow-xl">
+                        <img src="./src/assets/godschauffoer.webp" />
+                    </a>
+                    <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                        class="flex flex-col justify-center items-center shadow-xl">
+                        <button type="button"
+                            class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                            hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                            Bliv Godschauffør
+                        </button>
+                    </a>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                        class="rounded-full mb-4 p-4" style="max-width: 168px; background-color: #33383b;">
+                        <img src="./src/assets/bus.webp" />
+                    </a>
+                    <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                        class="flex flex-col justify-center items-center">
+                        <button type="button"
+                            class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                            hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                            Bliv Buschauffør
+                        </button>
+                    </a>
+                </div>
             </div>
-            <div class="flex flex-col w-fit">
-                <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
-                    class="rounded-full mb-4 p-4" style="max-width: 168px; background-color: #33383b;">
-                    <img src="./src/assets/bus.webp" />
-                </a>
-                <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
-                    class="flex flex-col justify-center items-center">
-                    <button type="button"
-                        class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
-                         hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
-                        Bliv Buschauffør
-                    </button>
-                </a>
+
+            <div x-data x-show="$store.global_data.video == false" x-transition x-transition.delay.600ms x-transition.duration.500ms class="h-[97svh] sm:h-[99dvh] grid grid-cols-1 min-h-[670px] sm:gap-y-0 tinyPhone:gap-0 bg-no-repeat bg-contain bg-bottom xl:bg-[url('./src/assets/elev-both-xl.png')] 2xl:bg-[url('./src/assets/elev-both-2xl.png')] bg-eud-yellow">
+                <div
+                    class="tinyPhone:hidden xsd:justify-end xl:mb-10 mt-16 xl:mt-20 flex flex-col sm:gap-y-1 justify-center items-center text-white">
+                    <p class="phone:text-xl text-2xl sm:text-3xl lg:text-3xl font-bold [text-shadow:_0_1px_12px_var(--tw-shadow-color)] shadow-slate-900/50">
+                        Næste hold 19. August 2024</p>
+                    <p class="text-5xl phone:text-4xl sm:text-7xl lg:text-8xl font-bold  [text-shadow:_0_1px_12px_var(--tw-shadow-color)] shadow-slate-900/50"
+                        >JUUL Erhvervsskole</p>
+                </div>
+                <div
+                    class="flex tinyPhone:hidden -mb-16 min-h-64 xl:hidden bg-no-repeat bg-contain bg-center bg-[url('./src/assets/elev-both-xss-gradient.png')]">
+                </div>
+                <!-- CTA-->
+                <div
+                    class="flex flex-wrap h-fit xl:max-h-96 tinyPhone:h-fit tinyPhone:mt-20 gap-10 xl:gap-x-16 justify-center items-center">
+                    <div class="flex flex-col w-fit">
+                        <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                            class="rounded-full mb-4 bg-outer-space-500 shadow-xl">
+                            <img src="./src/assets/godschauffoer.webp" />
+                        </a>
+                        <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                            class="flex flex-col justify-center items-center shadow-xl">
+                            <button type="button"
+                                class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                                 hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                                Bliv Godschauffør
+                            </button>
+                        </a>
+                    </div>
+                    <div class="flex flex-col w-fit">
+                        <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                            class="rounded-full mb-4 p-4" style="max-width: 168px; background-color: #33383b;">
+                            <img src="./src/assets/bus.webp" />
+                        </a>
+                        <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                            class="flex flex-col justify-center items-center">
+                            <button type="button"
+                                class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                                 hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                                Bliv Buschauffør
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col self-end mb-6 tinyPhone:mb-2 items-center justify-center">
+                        <div class="pb-6">
+                            <p class="text-2xl text-white [text-shadow:_0_1px_12px_var(--tw-shadow-color)] shadow-slate-900/50"> Se video! </p>
+                        </div>
+                        <a class="lg:hidden" href="#s1m">
+                            <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
+                            src="./src/assets/arrow-down.svg" />
+                        </a>
+                    <a class="hidden lg:inline" href="#s1d">
+                            <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
+                            src="./src/assets/arrow-down.svg" />
+                    </a>
+                    
+                </div>
             </div>
-        </div>
-        <div class="flex self-end mb-6 tinyPhone:mb-2 items-end justify-center">
-                <a class="lg:hidden" href="#s1m">
-                    <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
-                    src="./src/assets/arrow-down.svg" />
-                </a>
-            <a class="hidden lg:inline" href="#s1d">
-                    <img class="animate-bounce z-5 h-12 rounded-full border-black border-2 lg:border-4"
-                    src="./src/assets/arrow-down.svg" />
-            </a>
-            
-        </div>
     </div>
 
     <!-- Section 1 -->
@@ -240,14 +311,17 @@
                     </p>
                 </span>
             </div>
-            <div class="flex max-w-xl w-full bg-outer-space-500">
-                <img src="./src/assets/content-section-1-m.jpg" />
-            </div>
+
+                <!-- <img src="./src/assets/content-section-1-m.jpg" /> -->
+                <iframe class="flex w-full max-w-xl min-h-80 bg-outer-space-500"
+                    src="https://www.youtube.com/embed/Foxr4z6mHQs">
+                </iframe>
+
         </div>
     </div>
 
     <!-- Desktop Content Section -->
-    <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 bg-outer-space-500">
+    <div class="hidden lg:grid lg:grid-cols-2 2xl:grid-cols-6 2xl:py-0 z-10 bg-outer-space-500">
         <div class="hidden 2xl:flex"></div>
         <div class="flex flex-col py-8 text-white 2xl:col-span-2 justify-center items-start bg-outer-space-500">
             <a class="relative -top-10" id="s1d"></a>
@@ -265,7 +339,9 @@
             </span>
         </div>
         <div class="flex flex-col 2xl:col-span-2 justify-center items-center bg-outer-space-500">
-            <img src="./src/assets/content-section-1.jpg" />
+            <iframe class="w-full h-full min-h-[500px]"
+            src="https://www.youtube.com/embed/Foxr4z6mHQs">
+        </iframe>
         </div>
         <div class="hidden 2xl:flex"></div>
     </div>

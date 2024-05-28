@@ -721,6 +721,38 @@ video {
   z-index: 40;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-start-1 {
+  grid-column-start: 1;
+}
+
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+.col-end-4 {
+  grid-column-end: 4;
+}
+
+.row-span-4 {
+  grid-row: span 4 / span 4;
+}
+
+.row-start-4 {
+  grid-row-start: 4;
+}
+
+.row-start-1 {
+  grid-row-start: 1;
+}
+
+.row-end-4 {
+  grid-row-end: 4;
+}
+
 .float-start {
   float: inline-start;
 }
@@ -811,6 +843,10 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .box-border {
@@ -950,6 +986,10 @@ video {
 
 .h-\[32px\] {
   height: 32px;
+}
+
+.h-\[97svh\] {
+  height: 97svh;
 }
 
 .h-fit {
@@ -1437,6 +1477,14 @@ video {
 
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -2198,8 +2246,8 @@ video {
   --tw-bg-opacity: 0.25;
 }
 
-.bg-\[url\(\'\.\/assets\/elev-both-xss-gradient\.png\'\)\] {
-  background-image: url('./assets/elev-both-xss-gradient.png');
+.bg-\[url\(\'\.\/src\/assets\/elev-both-xss-gradient\.png\'\)\] {
+  background-image: url('./src/assets/elev-both-xss-gradient.png');
 }
 
 .decoration-slice {
@@ -2427,6 +2475,10 @@ video {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .text-left {
@@ -3274,6 +3326,10 @@ video {
     display: none;
   }
 
+  .sm\:h-\[99dvh\] {
+    height: 99dvh;
+  }
+
   .sm\:max-w-sm {
     max-width: 24rem;
   }
@@ -3411,8 +3467,8 @@ video {
          column-gap: 4rem;
   }
 
-  .xl\:bg-\[url\(\'\.\/assets\/elev-both-xl\.png\'\)\] {
-    background-image: url('./assets/elev-both-xl.png');
+  .xl\:bg-\[url\(\'\.\/src\/assets\/elev-both-xl\.png\'\)\] {
+    background-image: url('./src/assets/elev-both-xl.png');
   }
 }
 
@@ -3429,8 +3485,8 @@ video {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .\32xl\:bg-\[url\(\'\.\/assets\/elev-both-2xl\.png\'\)\] {
-    background-image: url('./assets/elev-both-2xl.png');
+  .\32xl\:bg-\[url\(\'\.\/src\/assets\/elev-both-2xl\.png\'\)\] {
+    background-image: url('./src/assets/elev-both-2xl.png');
   }
 
   .\32xl\:py-0 {
