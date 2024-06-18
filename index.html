@@ -117,6 +117,7 @@
     <nav class="sm:hidden fixed z-10 left-0 flex w-full max-w-none bg-outer-space-500" id="mobile-nav">
         <img class="resize-none h-16" src="./src/assets/logo-mobile.png" />
         <a href="https://www.amujuul.dk/erhvervsskole/tilmelding"
+            onclick="fathom.trackEvent('Klik tilmelding')"
             class="w-full flex h-16 sm:fixed sm:right-0 justify-center items-center bg-white">
             <p class="text-gray-700 text-base">Tilmeld</p>
         </a>
@@ -133,6 +134,7 @@
         src="./src/assets/logoTransport.png" />
     <nav class="hidden gap-x-4 pr-6 lg:pr-20 sm:flex justify-end absolute left-0 w-full h-10 max-w-none">
         <a href="https://www.amujuul.dk/erhvervsskole/tilmelding"
+            onclick="fathom.trackEvent('Klik tilmelding')"
             class="h-full flex w-40 justify-center items-center bg-rhino-500">
             <p class="text-white text-2xl">Tilmeld</p>
         </a>
@@ -182,10 +184,12 @@
             class="flex flex-wrap h-fit xl:max-h-96 tinyPhone:h-fit tinyPhone:mt-20 gap-10 xl:gap-x-16 justify-center items-center">
             <div class="flex flex-col w-fit">
                 <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                    onclick="fathom.trackEvent('Klik Godschauffør')"
                     class="rounded-full mb-4 bg-outer-space-500 shadow-xl">
                     <img src="./src/assets/godschauffoer.webp" />
                 </a>
                 <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
+                    onclick="fathom.trackEvent('Klik Godschauffør')"
                     class="flex flex-col justify-center items-center shadow-xl">
                     <button type="button"
                         class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
@@ -196,10 +200,12 @@
             </div>
             <div class="flex flex-col w-fit">
                 <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                    onclick="fathom.trackEvent('Klik Buschauffør')"
                     class="rounded-full mb-4 p-4" style="max-width: 168px; background-color: #33383b;">
                     <img src="./src/assets/bus.webp" />
                 </a>
                 <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
+                    onclick="fathom.trackEvent('Klik Buschauffør')"
                     class="flex flex-col justify-center items-center">
                     <button type="button"
                         class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
