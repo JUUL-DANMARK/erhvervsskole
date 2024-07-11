@@ -242,7 +242,7 @@
         
                         <!-- Content -->
                         <iframe id="modalVideoEmbedded" style="height:auto; aspect-ratio: 16/9; width: 95vw;" src="https://www.youtube.com/embed/Foxr4z6mHQs?si=o2LnZ6dkMe-a0o38?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" 
-                        modestbranding="0"  controls="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -260,34 +260,28 @@
         </video>
         
         <div x-show="$store.global_data.video" class="flex flex-col flex-wrap h-fit xl:max-h-96 z-10 tinyPhone:h-fit tinyPhone:mt-20 justify-center items-center container-cta self-end pb-24">
-            <div x-on:click="$store.global_data.videoModal = true, document.getElementById('eudVideoMobile').pause()" class="rounded-full border-2">
+            <div x-on:click="$store.global_data.videoModal = true, document.getElementById('eudVideoMobile').pause()" class="rounded-full border-2 tinyPhone:mb-24 mb-40">
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
             </div>
-            <div class="flex tinyPhone:gap-x-4 gap-x-10 xl:gap-x-16">
-                <div class="flex flex-col w-fit">
+            <div class="flex flex-col gap-y-4 gap-x-10 xl:gap-x-16">
+                <div class="flex w-full">
                     <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
-                        class="rounded-full mb-4 bg-outer-space-500 shadow-xl">
-                        <img src="./src/assets/godschauffoer.webp" />
-                    </a>
-                    <a href="https://www.amujuul.dk/erhvervsskole/godschauffoer"
-                        class="flex flex-col justify-center items-center shadow-xl">
+                        class="w-full  flex flex-col justify-center items-center shadow-xl">
                         <button type="button"
-                            class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                            class="flex gap-x-2 w-full items-center rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
                             hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                            <img class="w-12" src="./src/assets/lastbilEUD.png" />
                             Bliv Godschauffør
                         </button>
                     </a>
                 </div>
-                <div class="flex flex-col w-fit">
+                <div class="flex w-full">
                     <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
-                        class="rounded-full mb-4 p-4" style="max-width: 168px; background-color: #33383b;">
-                        <img src="./src/assets/bus.webp" />
-                    </a>
-                    <a href="https://www.amujuul.dk/erhvervsskole/buschauffoer"
-                        class="flex flex-col justify-center items-center">
+                        class="w-full flex flex-col justify-center items-center shadow-xl">
                         <button type="button"
-                            class="w-fit rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
+                            class="flex gap-x-2 w-full items-center rounded-md bg-outer-space-500 px-3 py-2 text-lg font-semibold text-white shadow-xl
                             hover:bg-outer-space-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-outer-space-500">
+                            <img class="w-12" src="./src/assets/bus.webp" />
                             Bliv Buschauffør
                         </button>
                     </a>
