@@ -79,6 +79,14 @@
             grid-column: 1/-1;
             grid-row-start: 1;
         }
+        .video-width-responsive {
+            width: 95vw;
+        }
+        @media (max-height: 450px) {
+            .video-width-responsive {
+                width: 70vw;
+            }
+        }
     </style>
     <script>
         function controlVideo(vidFunc) {
@@ -236,11 +244,11 @@
                     <div
                         x-on:click.stop
                         x-trap.noscroll.inert="$store.global_data.videoModal"
-                        class="relative w-fit overflow-y-auto rounded-xl bg-white shadow-lg"
+                        class="relative w-fit overflow-y-auto rounded-xl bg-transparent shadow-lg"
                     >
         
                         <!-- Content -->
-                        <iframe id="modalVideoEmbedded" style="height:auto; aspect-ratio: 16/9; width: 95vw;" src="https://www.youtube.com/embed/Foxr4z6mHQs?si=o2LnZ6dkMe-a0o38?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" 
+                        <iframe id="modalVideoEmbedded" class="h-auto aspect-video video-width-responsive" src="https://www.youtube.com/embed/Foxr4z6mHQs?si=o2LnZ6dkMe-a0o38?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
